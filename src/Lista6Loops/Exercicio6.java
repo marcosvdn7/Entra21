@@ -1,3 +1,4 @@
+//Verifica quantos anos levarão para que Juca alcance a altura de Chico.
 package Lista6Loops;
 
 public class Exercicio6 {

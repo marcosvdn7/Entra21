@@ -1,3 +1,4 @@
+//Lê os números digitados pelo usuário e verifica quantos desses números estão entre 100 e 200.
 package Lista6Loops;
 import java.util.Scanner;
 public class Exercicio7 {
@@ -12,7 +13,7 @@ public class Exercicio7 {
 		do {
 			System.out.println("Digite um número (0 para encerrar): ");
 			num = read.nextDouble();
-			if (num >= 100 && num <= 200) {
+			if (num > 100 && num < 200) {
 				qtdNum++;
 			} else if (num == 0) {
 				validacao = true;
