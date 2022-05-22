@@ -9,13 +9,13 @@ public class Exercicio10 {
 		double resultado;
 		
 		do {
-			resultado = num % 11; 
 			num++;
+			resultado = num % 11; 
 			if(resultado == 5) {
 				i++;
 			}
 		} while (i < 5);
-		System.out.println(num+ " é o quinto número maior que 1000 cujo resto da divisao por 11 é igual a 5.");
+		System.out.println((int)num+ " é o quinto número maior que 1000 cujo resto da divisao por 11 é igual a 5.");
 
 	}
 
