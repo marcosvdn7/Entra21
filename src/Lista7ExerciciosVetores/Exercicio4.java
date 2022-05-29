@@ -1,4 +1,4 @@
-package ListaExercicios7Arrays;
+package Lista7ExerciciosVetores;
 
 import java.util.Scanner;
 

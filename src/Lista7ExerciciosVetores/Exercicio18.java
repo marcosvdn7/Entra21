@@ -1,4 +1,4 @@
-package ListaExercicios7Arrays;
+package Lista7ExerciciosVetores;
 public class Exercicio18 {
 
 	public static void main(String[] args) {
