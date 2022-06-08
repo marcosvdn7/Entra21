@@ -15,18 +15,16 @@ public class Exercicio3 {
 		for (int i = 0; i < matrizM.length; i++) {
 			System.out.println("\nLinha " +i);
 			for (int j = 0; j < matrizM[i].length; j++) {
-				matrizM[i][j] = aleatorio.nextInt(9);
+				matrizM[i][j] = aleatorio.nextInt(10);
 				System.out.println("Coluna " +j+ ": " +matrizM[i][j]);
-				if (i == 4 && matrizM[i][j] > maior5) {
+				if (i == 5 && matrizM[i][j] > maior5) {
 					maior5 = matrizM[i][j];
-				}
-				if (i == 4 && matrizM[i][j] < menor5) {
+				} else if (i == 5 && matrizM[i][j] < menor5) {
 					menor5 = matrizM[i][j];
 				}
-				if (j == 6 && matrizM[i][j] > maior7) {
+				if (j == 7 && matrizM[i][j] > maior7) {
 					maior7 = matrizM[i][j];
-				}
-				if (j == 6 && matrizM[i][j] < menor7) {
+				} else if (j == 7 && matrizM[i][j] < menor7) {
 					menor7 = matrizM[i][j];
 				}
 			}
