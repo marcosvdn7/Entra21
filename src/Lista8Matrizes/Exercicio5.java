@@ -23,10 +23,15 @@ public class Exercicio5 {
 			System.out.println("VocÃª possui agendamento nos seguintes dias: ");
 			System.out.println("------------------");
 			for (int mes = 0; mes < calendario.length; mes++) {
+				boolean imprimirMes = true;
 				for (int dia = 0; dia < calendario[mes].length; dia++) {
 					for (int hora = 0; hora < calendario[mes][dia].length; hora++) {
 					if (calendario[mes][dia][hora] != "") {
-						System.out.println("Mês " +(mes + 1));
+						if (imprimirMes == true) {
+							System.out.println("Mês " +(mes + 1));
+							System.out.println("------------------");
+							imprimirMes = false;
+						}
 						System.out.println("Dia " +(dia + 1)+ " - " +(hora == 0 ? (hora + 1)+ " hora" :(hora + 1)+ " horas"));
 						System.out.println(calendario[mes][dia][hora]+ ".");
 						System.out.println("------------------");
@@ -81,10 +86,15 @@ public class Exercicio5 {
 					System.out.println("VocÃª possui agendamento nos seguintes dias: ");
 					System.out.println("------------------");
 					for (int mes = 0; mes < calendario.length; mes++) {
+						boolean imprimirMes = true;
 						for (int dia = 0; dia < calendario[mes].length; dia++) {
 							for (int hora = 0; hora < calendario[mes][dia].length; hora++) {
 							if (calendario[mes][dia][hora] != "") {
-								System.out.println("Mês " +(mes + 1));
+								if (imprimirMes == true) {
+									System.out.println("Mês " +(mes + 1));
+									System.out.println("------------------");
+									imprimirMes = false;
+								}
 								System.out.println("Dia " +(dia + 1)+ " - " +(hora == 0 ? (hora + 1)+ " hora" :(hora + 1)+ " horas"));
 								System.out.println(calendario[mes][dia][hora]+ ".");
 								System.out.println("------------------");
@@ -118,10 +128,15 @@ public class Exercicio5 {
 					System.out.println("VocÃª possui agendamento nos seguintes dias: ");
 					System.out.println("------------------");
 					for (int mes = 0; mes < calendario.length; mes++) {
+						boolean imprimirMes = true;
 						for (int dia = 0; dia < calendario[mes].length; dia++) {
 							for (int hora = 0; hora < calendario[mes][dia].length; hora++) {
 							if (calendario[mes][dia][hora] != "") {
-								System.out.println("Mês " +(mes + 1));
+								if (imprimirMes == true) {
+									System.out.println("Mês " +(mes + 1));
+									System.out.println("------------------");
+									imprimirMes = false;
+								}
 								System.out.println("Dia " +(dia + 1)+ " - " +(hora == 0 ? (hora + 1)+ " hora" :(hora + 1)+ " horas"));
 								System.out.println(calendario[mes][dia][hora]+ ".");
 								System.out.println("------------------");
