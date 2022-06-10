@@ -86,7 +86,6 @@ public class Exercicio6 {
 					System.out.println("O jogo empatou!");
 					fim = true;
 				}
-				int j = 0;
 				if (i == 1) {
 					i = 0;
 				} else if (i == 0) {

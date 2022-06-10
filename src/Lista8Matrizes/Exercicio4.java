@@ -21,9 +21,15 @@ public class Exercicio4 {
 			System.out.println("Você possui agendamento nos seguintes dias: ");
 			System.out.println("------------------");
 			for (int dia = 0; dia < calendario.length; dia++) {
+				boolean imprimirDia = false;
 					for (int hora = 0; hora < calendario[dia].length; hora++) {
 					if (calendario[dia][hora] != "") {
-						System.out.println("Dia " +(dia + 1)+ " - " +(hora == 0 ? (hora + 1)+ " hora" :(hora + 1)+ " horas"));
+						if (imprimirDia == false) {
+							System.out.println("       Dia " +(dia + 1));
+							System.out.println("------------------");
+							imprimirDia = true;
+						}
+						System.out.println((hora == 0 ? (hora + 1)+ " hora" :(hora + 1)+ " horas"));
 						System.out.println(calendario[dia][hora]+ ".");
 						System.out.println("------------------");
 					}
@@ -35,18 +41,14 @@ public class Exercicio4 {
 				System.out.println("Entre com um dia válido: ");
 				i = read.nextInt();
 			}
-			if (i != 0) {
-				i -= 1;
-			}
+			i--;
 			System.out.println("Entre com a hora que deseja consultar(1 - 24): ");
 			j = read.nextInt();
 			while (j > 24 || j < 1) {
 				System.out.println("Entre com uma hora válida: ");
 				i = read.nextInt();
 			}
-			if (j != 0) {
-				j -= 1;
-			}
+			j--;
 			if (calendario[i][j].equals("")) {
 				System.out.println("Você nao possui nenhum compromisso marcado para esse dia e hora, deseja adicionar?");
 				System.out.println("1 - Sim.");
@@ -67,9 +69,15 @@ public class Exercicio4 {
 					System.out.println("Você possui agendamento nos seguintes dias: ");
 					System.out.println("------------------");
 					for (int dia = 0; dia < calendario.length; dia++) {
+						boolean imprimirDia = false;
 							for (int hora = 0; hora < calendario[dia].length; hora++) {
 							if (calendario[dia][hora] != "") {
-								System.out.println("Dia " +(dia + 1)+ " - " +(hora == 0 ? (hora + 1)+ " hora" :(hora + 1)+ " horas"));
+								if (imprimirDia == false) {
+									System.out.println("       Dia " +(dia + 1));
+									System.out.println("------------------");
+									imprimirDia = true;
+								}
+								System.out.println((hora == 0 ? (hora + 1)+ " hora" :(hora + 1)+ " horas"));
 								System.out.println(calendario[dia][hora]+ ".");
 								System.out.println("------------------");
 							}
@@ -84,7 +92,7 @@ public class Exercicio4 {
 					System.out.println("---------------");
 					System.out.println("\nDeseja alterar o compromisso?");
 					System.out.println("1 - Sim.");
-					System.out.println("3 - N�o.");
+					System.out.println("2 - N�o.");
 					opcao = read.nextInt();
 					if (opcao == 1) {
 						System.out.println("Informe o novo compromisso: ");

@@ -28,7 +28,7 @@ public class Exercicio5 {
 					for (int hora = 0; hora < calendario[mes][dia].length; hora++) {
 					if (calendario[mes][dia][hora] != "") {
 						if (imprimirMes == true) {
-							System.out.println("Mês " +(mes + 1));
+							System.out.println("       Mês " +(mes + 1));
 							System.out.println("------------------");
 							imprimirMes = false;
 						}
@@ -45,27 +45,21 @@ public class Exercicio5 {
 				System.out.println("Entre com um mÃªs vÃ¡lido: ");
 				i = read.nextInt();
 			}
-			if (i != 0) {
-				i -= 1;
-			} 
+			i--;
 			System.out.println("Entre com o dia que deseja alterar(1 - 31): ");
 			j = read.nextInt();
 			while (j > 31 || j < 1) {
 				System.out.println("Entre com um dia vÃ¡lido: ");
 				j = read.nextInt();
 			}
-			if (j != 0) {
-				j -= 1;
-			} 
+			j--;
 			System.out.println("Entre com a hora que deseja alterar(1 - 8): ");
 			k = read.nextInt();
 			while (k > 8 || k < 1) {
 				System.out.println("Entre com uma hora vÃ¡lida: ");
 				k = read.nextInt();
 			}
-			if (k != 0) {
-				k -= 1;
-			} 
+			k--;
 			if (calendario[i][j][k].equals("")) {
 				System.out.println("VocÃª nao possui nenhum compromisso marcado para esse dia, deseja adicionar?");
 				System.out.println("1 - Sim.");
@@ -91,7 +85,7 @@ public class Exercicio5 {
 							for (int hora = 0; hora < calendario[mes][dia].length; hora++) {
 							if (calendario[mes][dia][hora] != "") {
 								if (imprimirMes == true) {
-									System.out.println("Mês " +(mes + 1));
+									System.out.println("       Mês " +(mes + 1));
 									System.out.println("------------------");
 									imprimirMes = false;
 								}
@@ -133,7 +127,7 @@ public class Exercicio5 {
 							for (int hora = 0; hora < calendario[mes][dia].length; hora++) {
 							if (calendario[mes][dia][hora] != "") {
 								if (imprimirMes == true) {
-									System.out.println("Mês " +(mes + 1));
+									System.out.println("       Mês " +(mes + 1));
 									System.out.println("------------------");
 									imprimirMes = false;
 								}
