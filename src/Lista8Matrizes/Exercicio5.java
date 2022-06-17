@@ -25,6 +25,7 @@ public class Exercicio5 {
 			for (int mes = 0; mes < calendario.length; mes++) {
 				boolean imprimirMes = true;
 				for (int dia = 0; dia < calendario[mes].length; dia++) {
+					boolean imprimirDia = true;
 					for (int hora = 0; hora < calendario[mes][dia].length; hora++) {
 					if (calendario[mes][dia][hora] != "") {
 						if (imprimirMes == true) {
@@ -32,7 +33,12 @@ public class Exercicio5 {
 							System.out.println("------------------");
 							imprimirMes = false;
 						}
-						System.out.println("Dia " +(dia + 1)+ " - " +(hora == 0 ? (hora + 1)+ " hora" :(hora + 1)+ " horas"));
+						if (imprimirDia == true) {
+							System.out.println("       Dia " +(dia + 1));
+							System.out.println("------------------");
+							imprimirDia = false;
+						}
+						System.out.println((hora == 0 ? (hora + 1)+ " hora" :(hora + 1)+ " horas"));
 						System.out.println(calendario[mes][dia][hora]+ ".");
 						System.out.println("------------------");
 						}
