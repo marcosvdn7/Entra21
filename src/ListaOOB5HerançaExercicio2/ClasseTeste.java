@@ -7,7 +7,6 @@ public class ClasseTeste {
 	public static void main(String[] args) {
 		Scanner read = new Scanner(System.in);
 		
-		Professor professor = new Professor();
 		Professor[] professores = new Professor[3];
 		
 		TecnicoAdmnistrativo tecnico = new TecnicoAdmnistrativo();
@@ -93,6 +92,8 @@ public class ClasseTeste {
 			} 
 			
 			if (opcao == 2) {
+				Professor professor = new Professor();
+				
 				System.out.println("Informe o nome do professor: ");
 				professor.setNome(read.next());
 				
@@ -124,6 +125,8 @@ public class ClasseTeste {
 						cursos[i].setProfessores(professores);
 					}
 				}
+				System.out.println(cursos[0].getProfessores());
+				System.out.println(professor.getCurso().getNome());
 				
 			} else if (opcao == 3) {
 				System.out.println("Informe o nome do tecnico: ");
