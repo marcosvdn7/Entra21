@@ -1,4 +1,4 @@
-package ListaOOB5HerançaExercicio2;
+ 	package ListaOOB5HerançaExercicio2;
 
 public class TecnicoAdmnistrativo extends Funcionario {
 
