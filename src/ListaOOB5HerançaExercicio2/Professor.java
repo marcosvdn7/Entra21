@@ -34,6 +34,14 @@ public class Professor extends Funcionario{
 	public void setDisciplinas(Disciplina[] disciplinas) {
 		this.disciplinas = disciplinas;
 	}
+	
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
 
 	public double calcSalario(double valorDedicacaoExclusiva, double retribTitulacao) {
 		return super.getSalario() + valorDedicacaoExclusiva + retribTitulacao;
@@ -42,13 +50,11 @@ public class Professor extends Funcionario{
 	public double calcSalario() {
 		return 0;
 	}
-
-	public Curso getCurso() {
-		return curso;
-	}
-
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
 	
+	public void cadastrarDisciplinas(Disciplina[] disciplinas) {
+		for (int i = 0; i < disciplinas.length; i++) {
+			this.disciplinas[i] = disciplinas[i];
+		}
+	}
+
 }

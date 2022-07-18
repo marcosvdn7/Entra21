@@ -52,22 +52,34 @@ public class Aluno {
 		this.disciplinas = alunos;
 	}
 	
-	private void mostrarDisciplinas() {
-		for (int i = 0; i < disciplinas.length; i++) {
-			System.out.println(disciplinas[i].getNome());
+	public String mostrarDisciplinas() {
+		String print = "";
+		print += "Disciplinas\n";
+		for (Disciplina disciplina : this.disciplinas) {
+			int indice = 1;
+			print += disciplina.getNome()+ (indice <= this.disciplinas.length ? ".\n" : ".");
+			indice++ ;
 		}
+		return print;
 	}
 	
-	public void mostrarAluno() {
-		System.out.println("--------------------------------------------");
-		System.out.println("Nome: " +this.nome);
-		System.out.println("CPF: " +this.cpf);
-		System.out.println("Nï¿½mero de matrï¿½cula: " +this.numMatricula);
-		System.out.println("Curso: " +this.curso);
-		System.out.println("Disciplinas: ");
-		this.mostrarDisciplinas();
-		System.out.println("--------------------------------------------");
+	public String toString() {
+		String print = "";
+		print += "--------------------------------------------\n";
+		print += "Nome: " +this.nome+ "\n";
+		print += "CPF: " +this.cpf+ "\n";
+		print += "Nï¿½mero de matrï¿½cula: " +this.numMatricula+ "\n";
+		print += "Curso: " +this.curso+ "\n";
+		print += "Disciplinas: " +this.mostrarDisciplinas();
+		print += "--------------------------------------------\n";
+		return print;
 	}
+	
+//	public String toString() {
+//		
+//		return "Nome :" +this.nome+ ".\n" + "CPF: " +this.cpf+ ".\n" + "Número de Matrícula: " +this.numMatricula+ ".\n"
+//		+ "Curso: " +this.curso+ ".\n";
+//	}
 	
 	public void cadastrarDisciplinas(Disciplina[] disciplinas) {
 		for (int i = 0; i < disciplinas.length; i++) {

@@ -168,8 +168,6 @@ public class ClasseTeste {
 						cursos[i].setProfessores(professores);
 					}
 				}
-				System.out.println(cursos[0].getProfessores());
-				System.out.println(professor.getCurso().getNome());
 				
 			} else if (opcao == 3) {
 				System.out.println("Informe o nome do tecnico: ");
@@ -191,17 +189,35 @@ public class ClasseTeste {
 				tecnico.setCargo(read.next());
 				
 				System.out.println("Informe o departamento do tecnico: ");
-				tecnico.setDepartamento(read.next());			
+				tecnico.setDepartamento(read.next());	
+				
 			} else if (opcao == 4) {
-				int opcaoMenu = 0;
-				System.out.println("Selecione o aluno: ");
+				String numMatricula = "";
+				System.out.println("Informe o número de matrícula: ");
+				numMatricula = read.next();
+				
 				for (int i = 0; i < alunos.length; i++) {
-					if (alunos[i] != null) {
-						System.out.println((i + 1)+ " - " +alunos[i].getNome());
+					if (numMatricula.equals(alunos[i].getNumMatricula())) {
+						int opcaoAluno = 0;
+						while (opcaoAluno != 3) {
+							System.out.println("------------------------------------");
+							System.out.println("1 - Mostrar Informações.");
+							System.out.println("2 - Mostrar disciplinas cursadas.");
+							System.out.println("3 - Voltar.");
+							System.out.println("------------------------------------");
+							opcaoAluno = read.nextInt();
+							
+							switch (opcaoAluno) {
+							case 1: System.out.println(alunos[i]);break;
+							case 2: 
+								System.out.println("Curso: " +alunos[i].getCurso()+ ".");
+								System.out.println(alunos[i].mostrarDisciplinas());break;
+							}
+						}
+						break;
 					}
 				}
-				opcaoMenu = read.nextInt();
-				alunos[opcaoMenu - 1].mostrarAluno();
+				
 			}
 		}
 		
