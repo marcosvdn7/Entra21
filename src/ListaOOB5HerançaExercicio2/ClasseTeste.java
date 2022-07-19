@@ -25,23 +25,24 @@ public class ClasseTeste {
 		Disciplina disciplinaLogicaProgramacao = new Disciplina("LogicaProgramação", "1111", "180");
 		Disciplina disciplinaCalculos = new Disciplina("Calculos", "2222", "150");
 		Disciplina disciplinaBancoDeDados = new Disciplina("BancoDeDados", "3333", "140");
-		Disciplina[] disciplinas = new Disciplina[3];
-		disciplinas[0] = disciplinaLogicaProgramacao;
-		disciplinas[1] = disciplinaCalculos;
-		disciplinas[2] = disciplinaBancoDeDados;
+		Disciplina[] disciplinasCurso1 = new Disciplina[3];
+		disciplinasCurso1[0] = disciplinaLogicaProgramacao;
+		disciplinasCurso1[1] = disciplinaCalculos;
+		disciplinasCurso1[2] = disciplinaBancoDeDados;
 		
-		curso1.setDisciplinas(disciplinas);
+		curso1.setDisciplinas(disciplinasCurso1);
 		
 		Curso curso2 = new Curso("AnaliseDeSistemas", "222222", "150");
 		
 		Disciplina disciplinaAlgoritmos = new Disciplina("Algoritmos", "1111", "180");
 		Disciplina disciplinaMatematica = new Disciplina("Matematica", "2222", "150");
 		Disciplina disciplinaAdmnistracao = new Disciplina("Admnistração", "3333", "140");
-		disciplinas[0] = disciplinaAlgoritmos;
-		disciplinas[1] = disciplinaMatematica;
-		disciplinas[2] = disciplinaAdmnistracao;
+		Disciplina[] disciplinasCurso2 = new Disciplina[3];
+		disciplinasCurso2[0] = disciplinaAlgoritmos;
+		disciplinasCurso2[1] = disciplinaMatematica;
+		disciplinasCurso2[2] = disciplinaAdmnistracao;
 		
-		curso2.setDisciplinas(disciplinas);
+		curso2.setDisciplinas(disciplinasCurso2);
 		
 		
 		//Array curso criado para receber os objetos cursos criados acima;
@@ -62,7 +63,7 @@ public class ClasseTeste {
 		
 		//Loop usado para repetir e simular todo os sitema da universidade, só irá encerrar ao mudar o
 		//valor da variavel (opcao) para 8, dentro dele vai ficar todo o resto do código.
-		while (opcao != 8) {
+		while (opcao != 9) {
 			System.out.println("----------------Universidade----------------");
 			System.out.println("--------------------------------------------");
 			System.out.println("1 - Registrar Aluno.");
@@ -72,7 +73,7 @@ public class ClasseTeste {
 			System.out.println("5 - Verificar Ficha Curso.");
 			System.out.println("6 - Verificar Ficha Professor.");
 			System.out.println("7 - Verificar Ficha Tecnico Admnistrativo.");
-			System.out.println("8 - Encerrar.");
+			System.out.println("9 - Encerrar.");
 			System.out.println("--------------------------------------------");
 			opcao = read.nextInt();
 			
@@ -100,27 +101,29 @@ public class ClasseTeste {
 				//igual ao atributo (nome) do objeto Curso dentro do indice (i) do array [cursos];
 				for (int i = 0; i < cursos.length; i++) {
 					if (nomeCurso.equalsIgnoreCase(cursos[i].getNome())) {
+						aluno.setDisciplinas(cursos[i].getDisciplinas());
 						aluno.setCurso(cursos[i].getNome());
-						//Nesse loop, o objeto Disciplina dentro do array [disciplinas] será atribuido
-						//ao atributo [disciplinas] do objeto Aluno, assim como o objeto Aluno será 
-						//atribuito ao atributo [alunos] do objeto Disciplinas que está no indice (j) 
-						//do array [disciplinas];
-						for (int j = 0; j < disciplinas.length; j++) {
-							aluno.cadastrarDisciplinas(disciplinas);
-							disciplinas[j].setAlunos(alunos);
+						
+						Disciplina[] disciplinasAux = new Disciplina[disciplinasCurso1.length];
+						disciplinasAux = cursos[i].getDisciplinas();
+						
+						//Loop usado para atribuir o objeto Aluno no índice (i) do array alunos, usado como 
+						//atributo para os objetos Cursos e Disciplinas;
+						for (int j = 0; j < cursos.length; j++) {
+							if (alunos[j] == null) {
+								alunos[j] = aluno;
+								
+								//Loop usado para atribuir o objeto Aluno dentro do atributo alunos[]
+								//da classe Disciplina. 
+								for (Disciplina disciplinaAux : disciplinasAux) {
+									disciplinaAux.setAlunos(alunos);
+								}
+								cursos[i].setDisciplinas(disciplinasAux);
+								break;
+							}
 						}
 					}
 				}
-				
-				//Loop usado para atribuir o objeto Aluno no índice (i) do array alunos, usado como 
-				//atributo para os objetos Cursos e Disciplinas;
-				for (int i = 0; i < cursos.length; i++) {
-					if (alunos[i] == null) {
-						alunos[i] = aluno;
-						break;
-					}
-				}
-				
 			} 
 			
 			//Caso o valor da variável (opcao) seja modificado para 2, entra para o trecho de código
@@ -164,8 +167,21 @@ public class ClasseTeste {
 				for (int i = 0; i < cursos.length; i++) {
 					if (nomeCurso.equalsIgnoreCase(cursos[i].getNome())) {
 						professor.setCurso(cursos[i]);
-						professores[i] = (professores[i] == null ? professor : null);
-						cursos[i].setProfessores(professores);
+
+						Disciplina[] disciplinasAux = new Disciplina[cursos[i].getDisciplinas().length];
+						disciplinasAux = cursos[i].getDisciplinas();
+						
+						for (Disciplina disciplinaAux : disciplinasAux) {
+							disciplinaAux.setProfessores(professores);
+						}
+						break;
+					}
+				}
+				
+				for (int i = 0; i < professores.length; i++) {
+					if (professores[i] == null) {
+						professores[i] = professor;
+						break;
 					}
 				}
 				
@@ -180,7 +196,7 @@ public class ClasseTeste {
 				tecnico.setTelefone(read.next());
 				
 				System.out.println("Informe o CTPS do tecnico: ");
-				tecnico.setTelefone(read.next());
+				tecnico.setCtps(read.next());
 				
 				System.out.println("Informe o salário bruto do tecnico: ");
 				tecnico.setSalario(read.nextDouble());
@@ -197,6 +213,9 @@ public class ClasseTeste {
 				numMatricula = read.next();
 				
 				for (int i = 0; i < alunos.length; i++) {
+					if (alunos[i] == null) {
+						break;
+					}
 					if (numMatricula.equals(alunos[i].getNumMatricula())) {
 						int opcaoAluno = 0;
 						while (opcaoAluno != 3) {
@@ -210,7 +229,6 @@ public class ClasseTeste {
 							switch (opcaoAluno) {
 							case 1: System.out.println(alunos[i]);break;
 							case 2: 
-								System.out.println("Curso: " +alunos[i].getCurso()+ ".");
 								System.out.println(alunos[i].mostrarDisciplinas());break;
 							}
 						}
@@ -218,6 +236,68 @@ public class ClasseTeste {
 					}
 				}
 				
+			} else if (opcao == 5) {
+				int opcaoCurso;
+				int indice = 1;
+				boolean sair = false;
+				
+				System.out.println("-----------------------------------");
+				System.out.println("Selecione o curso: ");
+				
+				for (Curso curso : cursos) {
+					System.out.println(indice+ " - " +curso.getNome());
+					indice++;
+				}
+				System.out.println("-----------------------------------");
+				opcaoCurso = (read.nextInt() - 1);
+				
+				while (sair != true) {
+					System.out.println("-----------------------------------");
+					System.out.println("1 - Acessar ficha técnica do curso.");
+					System.out.println("2 - Mostrar disciplinas.");
+					System.out.println("3 - Sair.");
+					System.out.println("-----------------------------------");
+					opcao = read.nextInt();
+					
+					switch (opcao) {
+					case 1: System.out.println(cursos[opcaoCurso].toString());break;
+					case 2: System.out.println(cursos[opcaoCurso].mostrarDisciplinas());break;
+					case 3: sair = true;break;
+					}
+				}
+			} else if (opcao == 6) {
+				if (professores[0] == null) {
+					System.out.println("Não existem professores cadastrados no sistema.\n");
+					continue;
+				}
+				int indice = 1;
+				boolean encerrar = false;
+				System.out.println("Selecione o professor: ");
+				
+				for (Professor professor : professores) {
+					if (professor == null){
+						break;
+					}
+					System.out.println(indice+ " - " +professor.getNome()+ ".");
+					indice++;
+				}
+				indice = (read.nextInt() - 1);
+				
+				while (encerrar == false) {
+					System.out.println("-----------------------------------");
+					System.out.println("1 - Mostrar informações.");
+					System.out.println("2 - Calcular salário.");
+					System.out.println("3 - Mostrar disciplinas.");
+					System.out.println("4 - Voltar.");
+					System.out.println("-----------------------------------");
+					opcao = read.nextInt();
+					
+					switch (opcao) {
+					case 1: System.out.println(professores[indice].toString());break;
+					case 2: System.out.println("Salário Líquido: " +professores[indice].calcSalario());break;
+					case 3: System.out.println(professores[indice].mostrarDisciplinas());;
+					}
+				}
 			}
 		}
 		

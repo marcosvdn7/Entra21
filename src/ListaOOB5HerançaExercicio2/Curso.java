@@ -50,15 +50,35 @@ public class Curso {
 		this.professores = professores;
 	}
 
-	public void mostrarProfessores() {
-	}
-
 	public Disciplina[] getDisciplinas() {
 		return disciplinas;
 	}
 
 	public void setDisciplinas(Disciplina[] disciplinas) {
 		this.disciplinas = disciplinas;
+	}
+	
+	public void mostrarProfessores() {
+	}
+	
+	public String mostrarDisciplinas() {
+		String print = "";
+		for (Disciplina disciplina : this.disciplinas) {
+			int indice = 1;
+			print += disciplina.getNome()+ (indice <= this.disciplinas.length ? ".\n" : ".");
+			indice++ ;
+		}
+		return print;
+	}
+	
+	public String toString() {
+		String print = "";
+		print += "---------------------------------";
+		print += "\nNome: " +this.nome;
+		print += "\nCódigo: " +this.codigo;
+		print += "\nDuração: " +this.duracaoHoras+ " horas.";
+		print += "\n--------------------------------\n";
+		return print;
 	}
 	
 }

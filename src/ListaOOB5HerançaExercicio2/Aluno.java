@@ -54,7 +54,6 @@ public class Aluno {
 	
 	public String mostrarDisciplinas() {
 		String print = "";
-		print += "Disciplinas\n";
 		for (Disciplina disciplina : this.disciplinas) {
 			int indice = 1;
 			print += disciplina.getNome()+ (indice <= this.disciplinas.length ? ".\n" : ".");
@@ -70,7 +69,6 @@ public class Aluno {
 		print += "CPF: " +this.cpf+ "\n";
 		print += "Nï¿½mero de matrï¿½cula: " +this.numMatricula+ "\n";
 		print += "Curso: " +this.curso+ "\n";
-		print += "Disciplinas: " +this.mostrarDisciplinas();
 		print += "--------------------------------------------\n";
 		return print;
 	}
@@ -80,10 +78,4 @@ public class Aluno {
 //		return "Nome :" +this.nome+ ".\n" + "CPF: " +this.cpf+ ".\n" + "Número de Matrícula: " +this.numMatricula+ ".\n"
 //		+ "Curso: " +this.curso+ ".\n";
 //	}
-	
-	public void cadastrarDisciplinas(Disciplina[] disciplinas) {
-		for (int i = 0; i < disciplinas.length; i++) {
-			this.disciplinas[i] = disciplinas[i];
-		}
-	}
 }
