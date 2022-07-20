@@ -1,19 +1,28 @@
 package Lista6Loops;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class teste {
 
 	public static void main(String[] args) {
-		double numDivCinco;
-		double i = 1000;
+		Scanner read = new Scanner(System.in);
 		
-		do {  
-			numDivCinco = i % 11;
-			if (numDivCinco == 5) {
+		int[] array = new int[10];
+		
+		try {
+			for (int i = 0; i < 15; i++) {
+				array[i] = i;
 				System.out.println(i);
 			}
-			i++;
-		} while (i <= 2000);
-
+		} catch (ArrayIndexOutOfBoundsException exception) {
+			System.out.println("Tratando erro " +exception);
+			for (int i = 0; i < array.length; i++) {
+				array[i] = i;
+				System.out.println(i);
+			}
+		}
+				
 	}
 
 }
